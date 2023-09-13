@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <sys/time.h>
 
 void error(char *msg)
 {
@@ -19,10 +20,12 @@ int main(int argc, char *argv[])
     int sockfd, portno, n;
     struct sockaddr_in serv_addr;
     struct hostent *server;
-    int size = pow(10,5);
+    struct timeval start, end;
+    double potencia = atof(argv[3]);
+    int size = pow(10,potencia);
     fprintf(stderr,"CLIENTE\n");
     char buffer[size];
-    if (argc < 3) {
+    if (argc < 4) {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
        exit(0);
     }
@@ -64,6 +67,7 @@ int main(int argc, char *argv[])
 
     //fgets(buffer,size -1,stdin);
     //ENVIA UN MENSAJE AL SOCKET
+  gettimeofday(&start, NULL);
 	n = write(sockfd,buffer,strlen(buffer));
     if (n < 0) 
          error("ERROR writing to socket");
@@ -73,7 +77,10 @@ int main(int argc, char *argv[])
 	n = read(sockfd,buffer,size -1);
     if (n < 0) 
          error("ERROR reading from socket");
-    
-	printf("%s\n",buffer);
+  
+  gettimeofday(&end, NULL);
+  long seconds = (end.tv_sec - start.tv_sec);
+  long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+  printf("Estoy en la repetición %f el tiempo fue %ld segundos y %ld microsegundos\n", potencia, seconds, micros);
     return 0;
 }
