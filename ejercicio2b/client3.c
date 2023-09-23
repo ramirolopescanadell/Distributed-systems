@@ -24,7 +24,9 @@ int main(int argc, char *argv[])
     double potencia = atof(argv[3]);
     int size = pow(10,potencia);
     fprintf(stderr,"CLIENTE\n");
-    char buffer[size];
+    char *buffer = malloc(size * sizeof(char) + sizeof(char));
+
+    
     if (argc < 4) {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
        exit(0);
@@ -80,6 +82,7 @@ int main(int argc, char *argv[])
   gettimeofday(&end, NULL);
   long seconds = (end.tv_sec - start.tv_sec);
   long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-  printf("Estoy en la repetición %f el tiempo fue %ld segundos y %ld microsegundos\n", potencia, seconds, micros);
-    return 0;
+  int p = potencia;
+  printf("Ejecutando un buffer de 10 a la  %d caracteres. El tiempo fue: %ld segundos y %ld microsegundos\n", p, seconds, micros);
+  return 0;
 }

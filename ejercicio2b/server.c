@@ -75,9 +75,6 @@ int main(int argc, char *argv[])
       }
       totalBytesRead += n;
      }
-     
-     printf("Here is the message: %s\n",buffer);
-	 
 	 //RESPONDE AL CLIENTE
      n = write(newsockfd,"I got your message",18);
      if (n < 0) error("ERROR writing to socket");
