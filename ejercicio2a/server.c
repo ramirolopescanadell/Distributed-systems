@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
      int sockfd, newsockfd, portno, clilen;
      double potencia = atof(argv[2]);
      int size = pow(10,potencia);
-     char buffer[size];
+     char *buffer = malloc(size * sizeof(char) + sizeof(char));
      struct sockaddr_in serv_addr, cli_addr;
      int n;
      fprintf(stderr,"SERVIDOR\n");

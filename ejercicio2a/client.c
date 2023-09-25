@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     double potencia = atof(argv[3]);
     int size = pow(10,potencia);
     fprintf(stderr,"CLIENTE\n");
-    char buffer[size];
+    char *buffer = malloc(size * sizeof(char) + sizeof(char));
     if (argc < 4) {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
        exit(0);

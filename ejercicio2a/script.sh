@@ -8,7 +8,7 @@ apt-get install -y net-tools debconf-utils libc-dev-bin gcc
 grep -q "alias ls='ls -la'" /home/vagrant/.bashrc || echo -e "\\nalias ls='ls -la'" >> /home/vagrant/.bashrc
 
 SERVER_IP="192.168.56.100"
-for i in {1..6}
+for i in {4..9}
 do
   SERVER_PORT=$((8080 + $i))
 

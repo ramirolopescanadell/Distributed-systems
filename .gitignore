@@ -1,5 +1,2 @@
 *.vagrant
-ejercicio1a/resultados/*
 
-dockerElasticKibana/env
-env
