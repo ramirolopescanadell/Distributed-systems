@@ -2,19 +2,22 @@
 
 ## Ejercicio2a:
 
-Ejemplo de comunicacion distribuida entre **2 vm**, utilizando **vagrant** para el despliegue con la compilacion y ejecucion de los scripts de c automatizados.
+Ejemplo de comunicación en sistemas distribuidos entre **2 máquinas virtuales**, utilizando **Vagrant** para el despliegue y la compilación y ejecución de los ejecutables .c automatizados.
 
-Los mismos se prueban con distintos tamaños de mensajes y deja la salida de las vms en la carpeta compartida resultados (archivo cliente.txt)
+Los ejecutables se ejecutan con distintos tamaños de buffer de comunicación y se guarda la salida en la carpeta compartida "resultados" dentro del archivo cliente.txt.
 
-    ejecucion:
-        vagrant up
+**Ejecucion:**
+        
+    vagrant up
 
 ## Ejercicio2b:
 
-Ejemplo de comunicacion distribuida entre una **vm y el host**, utilizando **vagrant** para el despliegue con la compilacion y ejecucion de los scripts de c automatizados.
+Ejemplo de comunicacion distribuida entre una **máquina virtual y el host**, utilizando **Vagrant** para el despliegue y la compilación y ejecución de los ejecutables  .c automatizados.
 
-Los mismos se prueban con distintos tamaños de mensajes y deja la salida de las vms en la carpeta resultados (archivo cliente.txt)
+Los ejecutables se ejecutan con distintos tamaños de buffer de comunicación y se guarda la salida en la carpeta compartida "resultados" dentro del archivo cliente.txt.
 
-    ejecucion:
-        ./initscript.sh  (en casos que no tenga permisos de ejecucion chmod +x initscript.sh)
+**Ejecucion:**
+
+    ./initscript.sh 
+*(en casos que no tenga permisos de ejecucion chmod +x initscript.sh)*
 
